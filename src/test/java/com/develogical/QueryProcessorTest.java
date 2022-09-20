@@ -31,7 +31,7 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void knowsAboutShakespeare() throws Exception {
+    public void knowsAboutNewQuery() throws Exception {
         assertThat(queryProcessor.process("newquery"), containsString("New query!"));
     }
 
