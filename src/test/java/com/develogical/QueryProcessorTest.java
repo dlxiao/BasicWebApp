@@ -35,10 +35,10 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("newquery"), containsString("New query!"));
     }
 
-    // @Test
-    // public void knowsAboutLargest() throws Exception {
-    //     assertThat(queryProcessor.process("which of the following numbers is the largest: 83, 91, 155, 918"), containsString("918"));
-    // }
+    @Test
+    public void knowsAboutLargest() throws Exception {
+        assertThat(queryProcessor.process("Which of the following numbers is the largest: 83, 91, 155, 918"), containsString("918"));
+    }
 
     @Test
     public void knowsAboutPlus() throws Exception {
