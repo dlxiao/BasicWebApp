@@ -14,6 +14,20 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("newquery")) {
             return "New query!";
         }
+
+        if(query.toLowerCase().contains("largest")) {
+            String[] parts = query.split(",");
+            String first_num = parts[0].substring((query.indexOf(':') + 2));
+
+            int max = Integer.parseInt(first_num);
+            for(String num_str : parts) {
+                int num_int = Integer.parseInt(num_str.substring(1));
+                if(num_int > max) {
+                    max = num_int;
+                } 
+            }
+            return ""+max;  
+        }
         return "";
     }
 }
