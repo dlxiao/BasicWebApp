@@ -1,5 +1,8 @@
 package com.develogical;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -26,8 +29,16 @@ public class QueryProcessor {
                     max = num_int;
                 } 
             }
-            return ""+max;  
+            return Integer.toString(max);  
         }
+
+        if(query.toLowerCase().contains("plus")) {
+            Pattern regex = Pattern.compile("what is (\\d+) plus (\\d+)");
+            Matcher matcher = regex.matcher(query.toLowerCase());
+            int sum = Integer.valueOf(matcher.group(1)) + Integer.valueOf(matcher.group(2));
+            return Integer.toString(sum);
+        }
+
         return "";
     }
 }
