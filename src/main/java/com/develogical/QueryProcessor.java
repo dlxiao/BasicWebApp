@@ -33,9 +33,14 @@ public class QueryProcessor {
         }
 
         if(query.toLowerCase().contains("plus")) {
-            Pattern regex = Pattern.compile("what is (\\d+) plus (\\d+)");
-            Matcher matcher = regex.matcher(query.toLowerCase());
-            int sum = Integer.valueOf(matcher.group(1)) + Integer.valueOf(matcher.group(2));
+
+            // String input = "Today is 22 September";
+            // Pattern regex = Pattern.compile("Today is (\\d+) \\w+");
+            // Matcher matcher = regex.matcher(input);
+            // System.out.println(matcher.group(1));
+            String first_num = query.substring(query.indexOf("is ") + 3, query.indexOf("plus") - 1);
+            String second_num = query.substring(query.indexOf("plus ") + 5);
+            int sum = Integer.valueOf(first_num) + Integer.valueOf(second_num);
             return Integer.toString(sum);
         }
 
